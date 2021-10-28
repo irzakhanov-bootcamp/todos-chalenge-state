@@ -47,14 +47,14 @@ button {
   text-align: center;
 }
 
-.input-block {
+.form {
   margin: 0 auto;
   width: 500px;
   display: flex;
   padding-top: 30px;
 }
 
-.input-block input {
+.form input {
   flex: 1;
   margin-right: 5px;
   height: 40px;
@@ -63,11 +63,11 @@ button {
   border: none;
 }
 
-.input-block input:focus {
+.form input:focus {
   outline: 1px solid #2e2efe;
 }
 
-.input-block button {
+.form button {
   background-color: #2e2efe;
   color: #d8d8d8;
   font-size: 18px;

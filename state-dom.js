@@ -79,7 +79,8 @@ const checkTodo = (id) => {
   render(todos);
 };
 
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   const text = document.querySelector("#text").value;
   if (text === "" || text === " ") {
     return;
