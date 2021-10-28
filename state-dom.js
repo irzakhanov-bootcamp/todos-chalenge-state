@@ -23,8 +23,10 @@ const todos = [
 
 const render = (todos) => {
   const listContainer = document.querySelector("#list");
+
   todos.forEach((todo) => {
     const item = document.createElement("div");
+    item.classList.add("todo-list__item");
     item.textContent = todo.text;
     listContainer.append(item);
   });
