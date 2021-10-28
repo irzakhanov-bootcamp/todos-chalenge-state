@@ -33,6 +33,7 @@ const render = (todos) => {
 };
 
 const remove = (id) => {
+  document.querySelector("#list").textContent = "";
   render(todos);
 };
 
