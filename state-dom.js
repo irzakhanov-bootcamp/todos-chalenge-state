@@ -20,3 +20,14 @@ const todos = [
     done: true,
   },
 ];
+
+const render = (todos) => {
+  const listContainer = document.querySelector("#list");
+  todos.forEach((todo) => {
+    const item = document.createElement("div");
+    item.textContent = todo.text;
+    listContainer.append(item);
+  });
+};
+
+render(todos);
