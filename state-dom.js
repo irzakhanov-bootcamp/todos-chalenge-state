@@ -32,4 +32,8 @@ const render = (todos) => {
   });
 };
 
+const remove = (id) => {
+  render(todos);
+};
+
 render(todos);
