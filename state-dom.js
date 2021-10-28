@@ -21,9 +21,10 @@ const todos = [
   },
 ];
 
+const addBtn = document.querySelector("#add-btn");
+
 const render = (todos) => {
   const listContainer = document.querySelector("#list");
-
   todos.forEach((todo) => {
     const item = document.createElement("div");
     item.classList.add("todo-list__item");
@@ -45,5 +46,14 @@ const remove = (id) => {
   document.querySelector("#list").textContent = "";
   render(todos);
 };
+
+addBtn.addEventListener("click", () => {
+  const text = document.querySelector("#text").value;
+  if (text === "" || text === " ") {
+    return;
+  }
+  addTodo(text);
+  document.querySelector("#text").value = "";
+});
 
 render(todos);
