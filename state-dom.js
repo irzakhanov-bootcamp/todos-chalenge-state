@@ -32,6 +32,15 @@ const render = (todos) => {
   });
 };
 
+const addTodo = (text) => {
+  todos.push({
+    text,
+    done: false,
+  });
+  document.querySelector("#list").textContent = "";
+  render(todos);
+};
+
 const remove = (id) => {
   document.querySelector("#list").textContent = "";
   render(todos);
