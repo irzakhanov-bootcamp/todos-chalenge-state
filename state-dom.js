@@ -9,7 +9,7 @@ const todos = [
   },
   {
     text: "Третье дело",
-    done: true,
+    done: false,
   },
   {
     text: "Четвертое дело",
@@ -17,7 +17,7 @@ const todos = [
   },
   {
     text: "Пятое дело",
-    done: true,
+    done: false,
   },
 ];
 
@@ -25,16 +25,32 @@ const addBtn = document.querySelector("#add-btn");
 
 const render = (todos) => {
   const listContainer = document.querySelector("#list");
+
   todos.forEach((todo, index) => {
     const item = document.createElement("div");
     const removeBtn = document.createElement("button");
+    const checkBox = document.createElement("input");
+
+    checkBox.type = "checkbox";
 
     removeBtn.textContent = "X";
     removeBtn.addEventListener("click", () => remove(index));
 
     item.classList.add("todo-list__item");
     item.textContent = todo.text;
+
+    if (todos[index].done) {
+      item.classList.add("completed");
+      checkBox.checked = true;
+    } else {
+      item.classList.remove("completed");
+      checkBox.checked = false;
+    }
+
+    item.append(checkBox);
     item.append(removeBtn);
+
+    checkBox.onchange = () => checkTodo(index);
 
     listContainer.append(item);
   });
@@ -51,6 +67,13 @@ const addTodo = (text) => {
 
 const remove = (id) => {
   todos.splice(id, 1);
+
+  document.querySelector("#list").textContent = "";
+  render(todos);
+};
+
+const checkTodo = (id) => {
+  todos[id].done = !todos[id].done;
 
   document.querySelector("#list").textContent = "";
   render(todos);
